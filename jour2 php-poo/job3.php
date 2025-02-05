@@ -8,8 +8,17 @@ class Livre {
     public function __construct($titre, $auteur, $nombrePages) {
         $this->titre = $titre;
         $this->auteur = $auteur;
-        $this->setNombrePages($nombrePages);
+        $this->setNombrePages($nombrePages); // Utilise la méthode setNombrePages pour initialiser nombrePages
         $this->disponible = true;
+    }
+
+    // Méthode pour définir le nombre de pages avec validation
+    public function setNombrePages($nombrePages) {
+        if (is_int($nombrePages) && $nombrePages > 0) {
+            $this->nombrePages = $nombrePages;
+        } else {
+            echo "Erreur : Le nombre de pages doit être un entier positif.\n";
+        }
     }
 
     // Méthode pour vérifier la disponibilité
